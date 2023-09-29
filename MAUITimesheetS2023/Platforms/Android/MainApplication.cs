@@ -3,7 +3,9 @@ using Android.Runtime;
 
 namespace MAUITimesheetS2023;
 
-[Application]
+
+
+[Application(UsesCleartextTraffic = true)]
 public class MainApplication : MauiApplication
 {
 	public MainApplication(IntPtr handle, JniHandleOwnership ownership)

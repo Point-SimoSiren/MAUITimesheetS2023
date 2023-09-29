@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUITimesheetS2023.EmployeePage">
+
+        <ContentPage.Resources>
+                       <StyleSheet Source="Resources/Styles/Styles.css" />
+        </ContentPage.Resources>
+
+    <StackLayout>
+
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Timesheet app" HorizontalTextAlignment="Center" TextColor="White" FontSize="28"/>
+        </Frame>
+
+        <Label x:Name="emp_lataus" />
+
+        <ListView x:Name="employeeList" SelectionMode="Single" Margin="20, 0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+                        <ContentView Padding="3">
+                            <Frame BorderColor="Silver" Padding="2">
+
+                                <StackLayout BackgroundColor="AliceBlue" Orientation="Horizontal" Padding="0, 2">
+
+                                    <Image Source="{Binding ImageLink}"
+                                     
+                                      WidthRequest="40"
+                                      HeightRequest="40"
+                                         VerticalOptions="StartAndExpand"
+                                            Margin="0, 0, 0, 0"/>
+
+                                    <Label Text="{Binding FirstName}"
+                                              
+                                               TextColor="Purple"
+                                               FontSize="22"
+                                               VerticalOptions="StartAndExpand" 
+                                           Margin="20, 0, 0, 0"/>
+
+
+                                    <Label Text="{Binding LastName}"
+                                        
+                                         TextColor="Purple"
+                                           FontSize="22"
+                                           VerticalOptions="StartAndExpand"
+                                            HorizontalOptions="Center"
+                                             Margin="5, 0, 0, 0"/>
+
+                                </StackLayout>
+                            </Frame>
+                        </ContentView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+    </StackLayout>
+
+</ContentPage>
