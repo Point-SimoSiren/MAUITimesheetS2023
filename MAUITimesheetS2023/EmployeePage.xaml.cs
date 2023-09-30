@@ -11,14 +11,12 @@ public partial class EmployeePage : ContentPage
     // Muuttujan alustaminen päätasolla jotta hakufunktio näkee muuttujan
     ObservableCollection<Employee> dataa = new ObservableCollection<Employee>();
 
-#if DEBUG
+/*
     private static readonly string Base = "http://10.0.2.2";
-    private static readonly string ApiBaseUrl = $"{Base}:5126/";
+    private static readonly string ApiBaseUrl = $"{Base}:5001/";
+*/
 
-#else
-    private static readonly string ApiBaseUrl = "https://jotain.azurewebsites.net";
-#endif
-
+    private static readonly string ApiBaseUrl = "https://tuntiapi.azurewebsites.net";
 
 
     public EmployeePage()
@@ -35,16 +33,11 @@ public partial class EmployeePage : ContentPage
     async void LoadDataFromRestApi()
     {
     
-
         try
         {
 
-#if DEBUG
-            HttpsClientHandlerService handler = new HttpsClientHandlerService();
-            HttpClient client = new HttpClient(handler.GetPlatformMessageHandler());
-#else
-                    client = new HttpClient();
-#endif
+                    HttpClient client = new HttpClient();
+
 
             client.BaseAddress = new Uri(ApiBaseUrl);
             string json = await client.GetStringAsync("api/employees");
