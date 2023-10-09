@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUITimesheetS2023.WorkassignmentPage"
+             Title="WorkassignmentPage">
+    
+    <ContentPage.Resources>
+        <StyleSheet Source="Resources/Styles/Styles.css" />
+    </ContentPage.Resources>
+
+    <VerticalStackLayout>
+
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Timesheet app" HorizontalTextAlignment="Center" TextColor="White" FontSize="28"/>
+        </Frame>
+
+        <Label x:Name="waLataus" FontSize="24" />
+
+        
+        <ListView x:Name="waList" SelectionMode="Single">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+                    <TextCell Text="{Binding Title}" Detail="{Binding Deadline}"/>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Label x:Name="latLabel" />
+        <Label x:Name="lonLabel" />
+
+      <HorizontalStackLayout>
+            <Button x:Name="startButton" Clicked="startButton_Clicked" Text="Aloita työ" BackgroundColor="GreenYellow" />
+            <Button x:Name="stopButton" Clicked="stopButton_Clicked" Text="Lopeta työ" BackgroundColor="OrangeRed" />
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+    
+</ContentPage>

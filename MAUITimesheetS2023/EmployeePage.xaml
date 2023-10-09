@@ -13,6 +13,10 @@
             <Label Text="Timesheet app" HorizontalTextAlignment="Center" TextColor="White" FontSize="28"/>
         </Frame>
 
+        <!-- Hakukenttä -->
+        <SearchBar Placeholder="Hae etu- tai sukunimellä" TextChanged="SearchBar_TextChanged"/>
+
+
         <Label x:Name="emp_lataus" />
 
         <ListView x:Name="employeeList" SelectionMode="Single" Margin="20, 0">
@@ -56,6 +60,8 @@
             </ListView.ItemTemplate>
         </ListView>
 
+        <!-- Nappi joka johtaa työtehtäviin -->
+        <Button x:Name="navibutton" Text="Työtehtäviin" Clicked="navibutton_Clicked"></Button>
 
     </StackLayout>
 
