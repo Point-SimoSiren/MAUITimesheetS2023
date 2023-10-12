@@ -156,9 +156,7 @@ public partial class WorkassignmentPage : ContentPage
             // Otetaan vastaan palvelimen vastaus
             string reply = await message.Content.ReadAsStringAsync();
 
-            await DisplayAlert("reply", reply, "ok");
-
-
+           
             //Asetetaan vastaus de-serialisoituna success muuttujaan
             bool success = JsonConvert.DeserializeObject<bool>(reply);
 
