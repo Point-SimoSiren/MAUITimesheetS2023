@@ -11,15 +11,6 @@ public partial class EmployeePage : ContentPage
     // Muuttujan alustaminen päätasolla jotta hakufunktio näkee muuttujan
     ObservableCollection<Employee> dataa = new ObservableCollection<Employee>();
 
-#if DEBUG
-    private static readonly string Base = "http://10.0.2.2";
-    private static readonly string ApiBaseUrl = $"{Base}:5126/";
-
-#else
-    private static readonly string ApiBaseUrl = "https://jotain.azurewebsites.net";
-#endif
-
-
 
     public EmployeePage()
 	{
@@ -39,14 +30,11 @@ public partial class EmployeePage : ContentPage
         try
         {
 
-#if DEBUG
-            HttpsClientHandlerService handler = new HttpsClientHandlerService();
-            HttpClient client = new HttpClient(handler.GetPlatformMessageHandler());
-#else
-                    client = new HttpClient();
-#endif
 
-            client.BaseAddress = new Uri(ApiBaseUrl);
+
+            HttpClient client = new HttpClient();
+	    
+            client.BaseAddress = new Uri(https://abc.azurewebsites.net/);
             string json = await client.GetStringAsync("api/employees");
 
             IEnumerable<Employee> employees = JsonConvert.DeserializeObject<Employee[]>(json);
